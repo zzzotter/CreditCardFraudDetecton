@@ -1,0 +1,2 @@
+Model,Threshold,PR_AUC,ROC_AUC,Recall,Precision,F1,MCC,False_Positives (误报数),True_Positives (抓到的欺诈),False_Negatives (漏报数)
+Logistic Regression,0.5,0.6275251631550335,0.9684146535449089,0.8783783783783784,0.06701030927835051,0.12452107279693486,0.23927730311190964,905,65,9
