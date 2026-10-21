@@ -124,10 +124,10 @@ Recall@K 表示分数最高的 K 条交易中覆盖了多少真实欺诈。同�
 以下命令在项目根目录执行：
 
 ```bash
-python src/unsupervised.py
-python src/dbscan_eps_sweep.py
-python src/dbscan_min_samples_sweep.py
-python src/export_dbscan_results.py --eps 8 5
+python src/dbscan_src/unsupervised.py
+python src/dbscan_src/dbscan_eps_sweep.py
+python src/dbscan_src/dbscan_min_samples_sweep.py
+python src/dbscan_src/export_dbscan_results.py --eps 8 5
 ```
 
 完整的基础入口还会运行项目中已有的其他方法。原始数据位置与依赖安装步骤见 [项目 README](../README.md)。当前报告整理直接使用已保存的真实实验指标，没有为修改汇报而重新训练。
