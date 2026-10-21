@@ -1,0 +1,82 @@
+{
+  "created_at": "2026-10-21T08:36:14+08:00",
+  "source": "data/processed/X_train.csv",
+  "source_sha256": "e0bc112056407e883ab9f3f1490d6594290bb5b27241b5a4d2782a51fc92d303",
+  "n_train_rows": 199364,
+  "feature_names": [
+    "Time",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7",
+    "V8",
+    "V9",
+    "V10",
+    "V11",
+    "V12",
+    "V13",
+    "V14",
+    "V15",
+    "V16",
+    "V17",
+    "V18",
+    "V19",
+    "V20",
+    "V21",
+    "V22",
+    "V23",
+    "V24",
+    "V25",
+    "V26",
+    "V27",
+    "V28",
+    "Amount"
+  ],
+  "sample_size": 10000,
+  "requested_sample_size": 10000,
+  "seed": 42,
+  "sampling": "numpy.default_rng.choice, uniform without replacement, sorted CSV row positions",
+  "cohort_id": "4114612fcadac989",
+  "data_split": "train",
+  "evaluation_scope": "in_sample_clustering",
+  "scaling": "StandardScaler fit on all X_train features; no labels, validation or test",
+  "score_definition": "distance to (min_samples-1)th other neighbor; auxiliary kNN sparsity, not probability",
+  "pr_auc_definition": "average_precision",
+  "arguments": {
+    "project_root": "D:\\Git\\CreditCardFraudDetecton",
+    "sample_size": 10000,
+    "seed": 42,
+    "eps": 3.0,
+    "min_samples": 10,
+    "eps_grid": [
+      2.0,
+      3.0,
+      4.0
+    ],
+    "min_samples_grid": [
+      5,
+      10
+    ],
+    "optics_min_samples": 10,
+    "min_cluster_size": 0.05,
+    "xi": 0.05,
+    "xi_grid": [
+      0.03,
+      0.05,
+      0.1
+    ],
+    "fit_timeout": 180
+  },
+  "versions": {
+    "python": "3.13.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.7.2"
+  },
+  "label_source_sha256": "e4a37b48390c4cc5c629e1a11af467263b17137d3013cec47312fa3b5631eb75",
+  "sample_fraud_count": 17,
+  "label_alignment": "A's X/y CSVs paired by row position; original row IDs were not exported by A"
+}
