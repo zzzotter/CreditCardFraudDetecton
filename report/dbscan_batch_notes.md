@@ -36,7 +36,8 @@ PCA 只用于作图。所有参数的簇标签计算完毕后，才读取真实�
 | 7 | 10 | 42136 | 3 | 362 | 39/74 | 323 | 35 | 52.70% | 10.77% | 0.1789 | 0.2357 | 0.1153 |
 | 10 | 10 | 42516 | 2 | 111 | 18/74 | 93 | 56 | 24.32% | 16.22% | 0.1946 | 0.1969 | 0.1153 |
 
-![eps 对照实验](results/figures/dbscan_batch_eps_sweep.png)
+![eps 对照实验](https://raw.githubusercontent.com/zzzotter/CreditCardFraudDetecton/main/results/figures/dbscan_batch_eps_sweep.png)
+
 
 由图表可见eps为6时各项指标都很好，下一组实验选择固定eps=6
 
