@@ -95,7 +95,7 @@ PCA 只用于作图。所有参数的簇标签计算完毕后，才读取真实�
 环境：Python 3.13.5，NumPy 2.2.6，scikit-learn 1.7.2。
 
 ```bash
-python src/dbscan_batch_experiments.py
+python src/dbscan_src_unsupervised.py
 ```
 
 
