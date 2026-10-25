@@ -58,7 +58,7 @@
 
 下图固定 min_samples=10，辅助 AP=0.1153，Recall@100=20.27%、Recall@500=72.97%、Recall@1000=81.08%。它与其他 min_samples 的主结果 AP 可能不同；同分按行位置升序。
 
-![固定 min_samples=10 的辅助 PR 曲线](https://raw.githubusercontent.com/zzzotter/CreditCardFraudDetecton/main/results/figures/optics_clusters.png)
+![固定 min_samples=10 的辅助 PR 曲线](https://raw.githubusercontent.com/zzzotter/CreditCardFraudDetecton/main/results/figures/optics_pr_curve.png)
 
 
 
@@ -89,30 +89,7 @@
 
 DBSCAN 通过固定半径判断核心点连通；本轮 OPTICS 通过 xi 提取可达距离的密度结构。因此二者的参数含义和异常划分规则不同。具体检出、误报及 F1/MCC 对照见综合报告。
 
-<!-- OPTICS_EXTRA_XI01_M2_10_START -->
-## 额外实验：xi=0.1，min_samples=2～10
 
-固定 min_cluster_size=500、max_eps=∞、predecessor_correction=True；使用同一批全部 42,721 条数据与原缩放方式。以下 9 组单独记为额外实验，不替换原两组主实验、主结果或模型比较表。
-
-| xi | min_samples | 簇数 | 异常候选 | 检出欺诈 | 误报 | 漏报 | Recall | Precision | F1 | MCC | 辅助 AP |
-| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 0.1 | 2 | 1 | 17 | 4/74 | 13 | 70 | 5.41% | 23.53% | 0.0879 | 0.1121 | 0.0581 |
-| 0.1 | 3 | 1 | 17 | 4/74 | 13 | 70 | 5.41% | 23.53% | 0.0879 | 0.1121 | 0.0718 |
-| 0.1 | 4 | 1 | 0 | 0/74 | 0 | 74 | 0.00% | 0.00% | 0.0000 | 0.0000 | 0.0755 |
-| 0.1 | 5 | 1 | 0 | 0/74 | 0 | 74 | 0.00% | 0.00% | 0.0000 | 0.0000 | 0.0864 |
-| 0.1 | 6 | 1 | 0 | 0/74 | 0 | 74 | 0.00% | 0.00% | 0.0000 | 0.0000 | 0.0938 |
-| 0.1 | 7 | 1 | 0 | 0/74 | 0 | 74 | 0.00% | 0.00% | 0.0000 | 0.0000 | 0.0993 |
-| 0.1 | 8 | 1 | 0 | 0/74 | 0 | 74 | 0.00% | 0.00% | 0.0000 | 0.0000 | 0.1039 |
-| 0.1 | 9 | 1 | 0 | 0/74 | 0 | 74 | 0.00% | 0.00% | 0.0000 | 0.0000 | 0.1084 |
-| 0.1 | 10 | 1 | 17 | 4/74 | 13 | 70 | 5.41% | 23.53% | 0.0879 | 0.1121 | 0.1153 |
-
-[额外实验指标 CSV](tables/optics_result/optics_extra_xi01_min_samples_2_10_metrics.csv) · [9 组逐行标签](tables/optics_result/optics_extra_xi01_min_samples_2_10_labels.csv)
-
-[额外实验说明与复现命令](optics_extra_experiment_notes.md)
-
-<!-- OPTICS_EXTRA_XI01_M2_10_END -->
-
-<!-- OPTICS_DBSCAN_CONTROL_EPS6_M10_START -->
 ## 同半径控制实验：eps=6、min_samples=10
 
 OPTICS 显式使用 cluster_method=dbscan、max_eps=eps=6，与 DBSCAN 相同半径对照；不替换上述 xi 结果。
