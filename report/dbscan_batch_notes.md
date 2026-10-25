@@ -56,7 +56,8 @@ PCA 只用于作图。所有参数的簇标签计算完毕后，才读取真实�
 
 仅比较固定 eps=6 的五组，**min_samples=10** 的 F1 与 MCC 最高：F1=0.1701、MCC=0.2706，检出欺诈 58/74 条，误报 550 条，漏报 16 条。
 
-![min_samples 对照实验](../results/validation/dbscan_batch/figures/dbscan_batch_min_samples_sweep.png)
+![eps 对照实验](https://raw.githubusercontent.com/zzzotter/CreditCardFraudDetecton/main/results/figures/dbscan_batch_min_samples_sweep.png)
+
 
 ## 六、PR-AUC 与 Recall@K 
 
