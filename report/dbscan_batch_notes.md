@@ -72,7 +72,7 @@ PCA 只用于作图。所有参数的簇标签计算完毕后，才读取真实�
 
 ## 七、结果文件
 
-![本轮候选聚类投影](https://raw.githubusercontent.com/zzzotter/CreditCardFraudDetecton/main/results/figures/dbscan_batch_clusters.png)
+![本轮候选聚类投影](https://raw.githubusercontent.com/zzzotter/CreditCardFraudDetecton/main/results/figures/dbscan_clusters.png)
 
 - [全部参数指标](../results/validation/dbscan_batch/tables/dbscan_batch_metrics.csv)
 - [原始六组指标](../results/validation/dbscan_batch/tables/dbscan_batch_initial_grid_metrics.csv)
