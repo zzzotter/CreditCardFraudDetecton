@@ -92,7 +92,7 @@ DBSCAN 通过固定半径判断核心点连通；本轮 OPTICS 通过 xi 提取�
 
 ## 同半径控制实验：eps=6、min_samples=10
 
-OPTICS 显式使用 cluster_method=dbscan、max_eps=eps=6，与 DBSCAN 相同半径对照；不替换上述 xi 结果。
+OPTICS 显式使用 cluster_method='dbscan'、max_eps=eps=6，与 DBSCAN 相同半径对照；不替换上述 xi 结果。
 
 | 方法 | 参数 | min_samples | 检出欺诈 | 误报 | 漏报 | Recall | Precision | F1 | MCC | 辅助 AP | Recall@100 |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
