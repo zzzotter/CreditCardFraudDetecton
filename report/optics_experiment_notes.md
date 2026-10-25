@@ -45,9 +45,12 @@
 
 ## 五、图示与辅助排序指标
 
-![OPTICS 主配置聚类投影](figures/optics_clusters.png)
+![OPTICS 主配置聚类投影](https://raw.githubusercontent.com/zzzotter/CreditCardFraudDetecton/main/results/figures/optics_clusters.png)
 
-![OPTICS 可达距离图](figures/optics_reachability.png)
+
+![OPTICS 可达距离图](https://raw.githubusercontent.com/zzzotter/CreditCardFraudDetecton/main/results/figures/optics_reachability.png)
+
+
 
 图按 OPTICS 访问顺序排列。xi 用于识别可达距离曲线中相对陡峭的变化，不对应一条水平 eps 阈值线。无限距离仅在图中放在显示上界，CSV 保留 inf。
 
@@ -55,7 +58,9 @@
 
 下图固定 min_samples=10，辅助 AP=0.1153，Recall@100=20.27%、Recall@500=72.97%、Recall@1000=81.08%。它与其他 min_samples 的主结果 AP 可能不同；同分按行位置升序。
 
-![固定 min_samples=10 的辅助 PR 曲线](figures/optics_pr_curve.png)
+![固定 min_samples=10 的辅助 PR 曲线](https://raw.githubusercontent.com/zzzotter/CreditCardFraudDetecton/main/results/figures/optics_clusters.png)
+
+
 
 ## 六、运行记录与交付文件
 
