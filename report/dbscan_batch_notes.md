@@ -67,11 +67,12 @@ PCA 只用于作图。所有参数的簇标签计算完毕后，才读取真实�
 
 下面使用**固定 min_samples=10** 对应的辅助 kNN 分数（k=9）绘制一条 PR 曲线：辅助 PR-AUC（AP）=0.1153，Recall@100=20.27%，Recall@500=72.97%，Recall@1000=81.08%。同分按 CSV 行位置升序。固定 min_samples=10 的各个 eps 使用相同分数，因此它们的辅助 PR 曲线重合，图中只展示一条。
 
-![辅助 kNN PR 曲线](../results/validation/dbscan_batch/figures/dbscan_batch_pr_curve.png)
+![辅助 kNN PR 曲线](https://raw.githubusercontent.com/zzzotter/CreditCardFraudDetecton/main/results/figures/dbscan_batch_pr_curve.png)
+
 
 ## 七、结果文件
 
-![本轮候选聚类投影](../results/validation/dbscan_batch/figures/dbscan_clusters.png)
+![本轮候选聚类投影](https://raw.githubusercontent.com/zzzotter/CreditCardFraudDetecton/main/results/figures/dbscan_batch_clusters.png)
 
 - [全部参数指标](../results/validation/dbscan_batch/tables/dbscan_batch_metrics.csv)
 - [原始六组指标](../results/validation/dbscan_batch/tables/dbscan_batch_initial_grid_metrics.csv)
@@ -82,7 +83,6 @@ PCA 只用于作图。所有参数的簇标签计算完毕后，才读取真实�
 - [全部已完成组合的标签宽表](../results/validation/dbscan_batch/tables/dbscan_batch_all_labels.csv)
 - [五种 k 的辅助分数](../results/validation/dbscan_batch/tables/dbscan_batch_auxiliary_scores.csv)
 
-文件中的 row_index 全部指向本次 42,721 行输入，不指向旧的 10,000 行训练抽样。全部样本参与聚类，core/noise/border 的含义来自本次整批数据。
 
 ## 八、耗时与评价边界
 
