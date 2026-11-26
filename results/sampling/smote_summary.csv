@@ -1,0 +1,2 @@
+method,sampling_strategy,kind,k_neighbors,random_state,normal_before,fraud_before,total_before,normal_after,fraud_after,total_after,synthetic_added,fraud_rate_before,fraud_rate_after
+smote,auto,,5,42,199020,344,199364,199020,199020,398040,198676,0.0017254870488152324,0.5
