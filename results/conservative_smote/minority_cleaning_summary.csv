@@ -1,0 +1,2 @@
+outlier_neighbors,outlier_quantile,distance_threshold,fraud_before,outliers_flagged,fraud_after_cleaning,fraud_in_smote_base,fallback_used
+5,0.95,11.745683594032803,344,18,326,326,False

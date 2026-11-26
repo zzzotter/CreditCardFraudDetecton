@@ -1,0 +1,2 @@
+alpha,candidate_cap,k_neighbors,random_state,normal_before,fraud_before,fraud_after_cleaning,fraud_in_smote_base,fallback_used,candidates_generated,fraud_rate_before,fraud_with_all_candidates,total_with_all_candidates,fraud_rate_with_all_candidates
+2,5000,5,42,199020,344,326,326,False,688,0.0017254870488152324,1032,200052,0.005158658748725332
