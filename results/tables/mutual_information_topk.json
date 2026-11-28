@@ -1,0 +1,231 @@
+{
+  "method": "mutual_information",
+  "estimator": "sklearn.feature_selection.mutual_info_classif",
+  "params": {
+    "discrete_features": false,
+    "n_neighbors": 3,
+    "random_state": 42
+  },
+  "input": {
+    "X": "data/processed/X_train.csv",
+    "y": "data/processed/y_train.csv",
+    "n_samples": 199364,
+    "n_features": 30,
+    "n_positive": 344,
+    "positive_rate": 0.0017254870488152324,
+    "split_info": "results/feature_selection/data_split_info.json"
+  },
+  "top_k": {
+    "10": [
+      "V17",
+      "V14",
+      "V12",
+      "V10",
+      "V11",
+      "V16",
+      "V4",
+      "V3",
+      "V9",
+      "V18"
+    ],
+    "15": [
+      "V17",
+      "V14",
+      "V12",
+      "V10",
+      "V11",
+      "V16",
+      "V4",
+      "V3",
+      "V9",
+      "V18",
+      "V7",
+      "V2",
+      "V21",
+      "V5",
+      "V27"
+    ],
+    "20": [
+      "V17",
+      "V14",
+      "V12",
+      "V10",
+      "V11",
+      "V16",
+      "V4",
+      "V3",
+      "V9",
+      "V18",
+      "V7",
+      "V2",
+      "V21",
+      "V5",
+      "V27",
+      "V6",
+      "V1",
+      "V8",
+      "Time",
+      "V28"
+    ]
+  },
+  "full_ranking": [
+    {
+      "rank": 1,
+      "feature": "V17",
+      "mi_score": 0.008430712027004184
+    },
+    {
+      "rank": 2,
+      "feature": "V14",
+      "mi_score": 0.008325482225216674
+    },
+    {
+      "rank": 3,
+      "feature": "V12",
+      "mi_score": 0.007729291433996921
+    },
+    {
+      "rank": 4,
+      "feature": "V10",
+      "mi_score": 0.007723424239774346
+    },
+    {
+      "rank": 5,
+      "feature": "V11",
+      "mi_score": 0.006885877454097411
+    },
+    {
+      "rank": 6,
+      "feature": "V16",
+      "mi_score": 0.006169748814228826
+    },
+    {
+      "rank": 7,
+      "feature": "V4",
+      "mi_score": 0.005256783113529506
+    },
+    {
+      "rank": 8,
+      "feature": "V3",
+      "mi_score": 0.004921796533082223
+    },
+    {
+      "rank": 9,
+      "feature": "V9",
+      "mi_score": 0.004525194074837091
+    },
+    {
+      "rank": 10,
+      "feature": "V18",
+      "mi_score": 0.004313682632558935
+    },
+    {
+      "rank": 11,
+      "feature": "V7",
+      "mi_score": 0.004055090089852054
+    },
+    {
+      "rank": 12,
+      "feature": "V2",
+      "mi_score": 0.0032610883881689645
+    },
+    {
+      "rank": 13,
+      "feature": "V21",
+      "mi_score": 0.002539140499518089
+    },
+    {
+      "rank": 14,
+      "feature": "V5",
+      "mi_score": 0.002481748990921351
+    },
+    {
+      "rank": 15,
+      "feature": "V27",
+      "mi_score": 0.0024362381033420366
+    },
+    {
+      "rank": 16,
+      "feature": "V6",
+      "mi_score": 0.0022528364800497025
+    },
+    {
+      "rank": 17,
+      "feature": "V1",
+      "mi_score": 0.0020146638856978205
+    },
+    {
+      "rank": 18,
+      "feature": "V8",
+      "mi_score": 0.0018018330716090825
+    },
+    {
+      "rank": 19,
+      "feature": "Time",
+      "mi_score": 0.001744290283928862
+    },
+    {
+      "rank": 20,
+      "feature": "V28",
+      "mi_score": 0.0017197943609992272
+    },
+    {
+      "rank": 21,
+      "feature": "Amount",
+      "mi_score": 0.001496020142624177
+    },
+    {
+      "rank": 22,
+      "feature": "V19",
+      "mi_score": 0.001278552840236702
+    },
+    {
+      "rank": 23,
+      "feature": "V20",
+      "mi_score": 0.0011464127142060132
+    },
+    {
+      "rank": 24,
+      "feature": "V23",
+      "mi_score": 0.0007618888253716483
+    },
+    {
+      "rank": 25,
+      "feature": "V24",
+      "mi_score": 0.0006099410804029093
+    },
+    {
+      "rank": 26,
+      "feature": "V25",
+      "mi_score": 0.0005096024022214207
+    },
+    {
+      "rank": 27,
+      "feature": "V26",
+      "mi_score": 0.0004520151771022496
+    },
+    {
+      "rank": 28,
+      "feature": "V15",
+      "mi_score": 0.0003763472004935098
+    },
+    {
+      "rank": 29,
+      "feature": "V13",
+      "mi_score": 0.0003147042051562243
+    },
+    {
+      "rank": 30,
+      "feature": "V22",
+      "mi_score": 0.0002317699377765159
+    }
+  ],
+  "script": "src/mutual_information.py",
+  "created_at": "2026-11-24T16:41:59+08:00",
+  "python": "3.13.7",
+  "notes": [
+    "只使用真实训练集，验证/测试集未读入。",
+    "互信息为连续-离散 kNN 估计，数值单位 nats，量级普遍偏小，比较时看相对次序。",
+    "分数相同者按冻结列序细分名次，故排序唯一可复现。"
+  ]
+}

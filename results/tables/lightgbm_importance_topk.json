@@ -1,0 +1,307 @@
+{
+  "method": "lightgbm_importance",
+  "estimator": "lightgbm.LGBMClassifier",
+  "importance_type": {
+    "primary": "gain",
+    "secondary": "split"
+  },
+  "params": {
+    "n_estimators": 500,
+    "learning_rate": 0.05,
+    "num_leaves": 31,
+    "min_child_samples": 20,
+    "subsample": 0.9,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.9,
+    "class_weight": "balanced",
+    "random_state": 42,
+    "early_stopping": null
+  },
+  "input": {
+    "X": "data/processed/X_train.csv",
+    "y": "data/processed/y_train.csv",
+    "n_samples": 199364,
+    "n_features": 30,
+    "n_positive": 344,
+    "positive_rate": 0.0017254870488152324,
+    "split_info": "results/feature_selection/data_split_info.json"
+  },
+  "top_k": {
+    "10": [
+      "V14",
+      "V4",
+      "V10",
+      "V12",
+      "V26",
+      "Amount",
+      "V17",
+      "V11",
+      "V13",
+      "V21"
+    ],
+    "15": [
+      "V14",
+      "V4",
+      "V10",
+      "V12",
+      "V26",
+      "Amount",
+      "V17",
+      "V11",
+      "V13",
+      "V21",
+      "V20",
+      "V7",
+      "V22",
+      "V18",
+      "V16"
+    ],
+    "20": [
+      "V14",
+      "V4",
+      "V10",
+      "V12",
+      "V26",
+      "Amount",
+      "V17",
+      "V11",
+      "V13",
+      "V21",
+      "V20",
+      "V7",
+      "V22",
+      "V18",
+      "V16",
+      "Time",
+      "V15",
+      "V28",
+      "V8",
+      "V19"
+    ]
+  },
+  "full_ranking": [
+    {
+      "rank": 1,
+      "feature": "V14",
+      "gain": 1740159.8838059737,
+      "gain_share": 0.6688021721159741,
+      "split": 749
+    },
+    {
+      "rank": 2,
+      "feature": "V4",
+      "gain": 190192.56766933558,
+      "gain_share": 0.07309742257668829,
+      "split": 772
+    },
+    {
+      "rank": 3,
+      "feature": "V10",
+      "gain": 128328.3601195903,
+      "gain_share": 0.0493209197561484,
+      "split": 596
+    },
+    {
+      "rank": 4,
+      "feature": "V12",
+      "gain": 76813.6334429615,
+      "gain_share": 0.02952207172045172,
+      "split": 690
+    },
+    {
+      "rank": 5,
+      "feature": "V26",
+      "gain": 33509.83830034343,
+      "gain_share": 0.012878961784538878,
+      "split": 599
+    },
+    {
+      "rank": 6,
+      "feature": "Amount",
+      "gain": 31615.336578926945,
+      "gain_share": 0.012150840835336447,
+      "split": 554
+    },
+    {
+      "rank": 7,
+      "feature": "V17",
+      "gain": 29679.173833593697,
+      "gain_share": 0.011406708148622194,
+      "split": 346
+    },
+    {
+      "rank": 8,
+      "feature": "V11",
+      "gain": 29031.541607315186,
+      "gain_share": 0.011157801227081146,
+      "split": 570
+    },
+    {
+      "rank": 9,
+      "feature": "V13",
+      "gain": 28494.299322017236,
+      "gain_share": 0.01095132088541624,
+      "split": 580
+    },
+    {
+      "rank": 10,
+      "feature": "V21",
+      "gain": 24956.074405250576,
+      "gain_share": 0.009591461638119483,
+      "split": 473
+    },
+    {
+      "rank": 11,
+      "feature": "V20",
+      "gain": 24417.686420555285,
+      "gain_share": 0.009384540965509896,
+      "split": 445
+    },
+    {
+      "rank": 12,
+      "feature": "V7",
+      "gain": 23435.8608990738,
+      "gain_share": 0.009007192281911044,
+      "split": 525
+    },
+    {
+      "rank": 13,
+      "feature": "V22",
+      "gain": 19003.261220526387,
+      "gain_share": 0.0073035946293498145,
+      "split": 471
+    },
+    {
+      "rank": 14,
+      "feature": "V18",
+      "gain": 18662.12685682939,
+      "gain_share": 0.007172485180415183,
+      "split": 410
+    },
+    {
+      "rank": 15,
+      "feature": "V16",
+      "gain": 16330.115847489971,
+      "gain_share": 0.006276214646334495,
+      "split": 458
+    },
+    {
+      "rank": 16,
+      "feature": "Time",
+      "gain": 16063.221607422747,
+      "gain_share": 0.006173638182445557,
+      "split": 738
+    },
+    {
+      "rank": 17,
+      "feature": "V15",
+      "gain": 15593.847702601051,
+      "gain_share": 0.005993241949892073,
+      "split": 496
+    },
+    {
+      "rank": 18,
+      "feature": "V28",
+      "gain": 15328.556001804303,
+      "gain_share": 0.005891281395928981,
+      "split": 498
+    },
+    {
+      "rank": 19,
+      "feature": "V8",
+      "gain": 14820.994708239596,
+      "gain_share": 0.0056962084610928864,
+      "split": 365
+    },
+    {
+      "rank": 20,
+      "feature": "V19",
+      "gain": 14648.593958879617,
+      "gain_share": 0.005629949034749719,
+      "split": 448
+    },
+    {
+      "rank": 21,
+      "feature": "V3",
+      "gain": 14639.891160567,
+      "gain_share": 0.005626604255646873,
+      "split": 498
+    },
+    {
+      "rank": 22,
+      "feature": "V5",
+      "gain": 14504.51799665048,
+      "gain_share": 0.005574575780036023,
+      "split": 371
+    },
+    {
+      "rank": 23,
+      "feature": "V27",
+      "gain": 14146.64374919713,
+      "gain_share": 0.005437032628818397,
+      "split": 491
+    },
+    {
+      "rank": 24,
+      "feature": "V25",
+      "gain": 13872.611989034864,
+      "gain_share": 0.005331712975072304,
+      "split": 473
+    },
+    {
+      "rank": 25,
+      "feature": "V23",
+      "gain": 10768.154080837645,
+      "gain_share": 0.004138565028399827,
+      "split": 349
+    },
+    {
+      "rank": 26,
+      "feature": "V6",
+      "gain": 10389.043091523024,
+      "gain_share": 0.00399285988056473,
+      "split": 429
+    },
+    {
+      "rank": 27,
+      "feature": "V2",
+      "gain": 9344.241298093024,
+      "gain_share": 0.0035913072902657565,
+      "split": 351
+    },
+    {
+      "rank": 28,
+      "feature": "V24",
+      "gain": 8047.741811203101,
+      "gain_share": 0.003093018781808273,
+      "split": 531
+    },
+    {
+      "rank": 29,
+      "feature": "V1",
+      "gain": 7801.2168584786705,
+      "gain_share": 0.002998270922489577,
+      "split": 360
+    },
+    {
+      "rank": 30,
+      "feature": "V9",
+      "gain": 7306.215100083151,
+      "gain_share": 0.0028080250408915714,
+      "split": 364
+    }
+  ],
+  "sanity": {
+    "train_average_precision": 1.0,
+    "fit_seconds": 5.0
+  },
+  "script": "src/lightgbm_importance.py",
+  "created_at": "2026-11-24T17:43:03+08:00",
+  "python": "3.13.7",
+  "lightgbm_version": "4.7.0",
+  "notes": [
+    "只使用真实训练集；未使用 early stopping，避免通过验证集信息影响特征排序。",
+    "hyperparameters 为固定基线，未做任何调参。",
+    "gain 归一到 share（总和 1）便于跨方法比较；split 仅作交叉核对。"
+  ]
+}

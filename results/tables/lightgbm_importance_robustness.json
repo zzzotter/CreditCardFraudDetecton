@@ -1,0 +1,1050 @@
+{
+  "method": "lightgbm_importance_robustness",
+  "n_runs": 25,
+  "configs": [
+    {
+      "name": "C0_baseline",
+      "params": {
+        "learning_rate": 0.05,
+        "subsample": 0.9,
+        "subsample_freq": 1,
+        "class_weight": "balanced",
+        "n_jobs": -1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "verbose": -1,
+        "n_estimators": 500,
+        "num_leaves": 31,
+        "min_child_samples": 20,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 0.0
+      }
+    },
+    {
+      "name": "C1_regularized",
+      "params": {
+        "learning_rate": 0.05,
+        "subsample": 0.9,
+        "subsample_freq": 1,
+        "class_weight": "balanced",
+        "n_jobs": -1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "verbose": -1,
+        "n_estimators": 300,
+        "num_leaves": 15,
+        "min_child_samples": 50,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 1.0
+      }
+    },
+    {
+      "name": "C2_shallow",
+      "params": {
+        "learning_rate": 0.05,
+        "subsample": 0.9,
+        "subsample_freq": 1,
+        "class_weight": "balanced",
+        "n_jobs": -1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "verbose": -1,
+        "n_estimators": 200,
+        "num_leaves": 7,
+        "min_child_samples": 100,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 5.0
+      }
+    },
+    {
+      "name": "C3_no_colsample",
+      "params": {
+        "learning_rate": 0.05,
+        "subsample": 0.8,
+        "subsample_freq": 1,
+        "class_weight": "balanced",
+        "n_jobs": -1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "verbose": -1,
+        "n_estimators": 300,
+        "num_leaves": 15,
+        "min_child_samples": 50,
+        "colsample_bytree": 1.0,
+        "reg_lambda": 1.0
+      }
+    },
+    {
+      "name": "C4_unweighted",
+      "params": {
+        "learning_rate": 0.05,
+        "subsample": 0.9,
+        "subsample_freq": 1,
+        "class_weight": null,
+        "n_jobs": -1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "verbose": -1,
+        "n_estimators": 300,
+        "num_leaves": 15,
+        "min_child_samples": 50,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 1.0
+      }
+    }
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "input": {
+    "X": "data/processed/X_train.csv",
+    "y": "data/processed/y_train.csv",
+    "n_samples": 199364,
+    "n_positive": 344
+  },
+  "stability": {
+    "mean_pairwise_rank_correlation": 0.7958828327771598,
+    "mean_pairwise_top10_jaccard": 0.6644044844044845,
+    "elapsed_seconds": 103.6
+  },
+  "consensus": {
+    "rule": "进入 Top-k 的次数 >= ceil(0.8 * 25) = 20",
+    "top10": [
+      "V14",
+      "V10",
+      "V4",
+      "V12",
+      "V17",
+      "V26",
+      "Amount"
+    ],
+    "top15": [
+      "V14",
+      "V10",
+      "V4",
+      "V12",
+      "V17",
+      "V26",
+      "Amount",
+      "V21",
+      "V11",
+      "V13",
+      "V20"
+    ],
+    "top20": [
+      "V14",
+      "V10",
+      "V4",
+      "V12",
+      "V17",
+      "V26",
+      "Amount",
+      "V21",
+      "V11",
+      "V13",
+      "V20",
+      "V28",
+      "V7",
+      "V8",
+      "V3",
+      "V16",
+      "V19"
+    ]
+  },
+  "baseline_vs_day2": {
+    "performed": true,
+    "day2_top10": [
+      "V14",
+      "V4",
+      "V10",
+      "V12",
+      "V26",
+      "Amount",
+      "V17",
+      "V11",
+      "V13",
+      "V21"
+    ],
+    "c0_seed42_top10": [
+      "V14",
+      "V4",
+      "V10",
+      "V12",
+      "V26",
+      "Amount",
+      "V17",
+      "V11",
+      "V13",
+      "V21"
+    ],
+    "top10_identical": true,
+    "max_abs_share_diff": 4.9892073111790225e-11,
+    "reproduced": true
+  },
+  "per_run_top10": [
+    {
+      "config": "C0_baseline",
+      "seed": 42,
+      "top10": [
+        "V14",
+        "V4",
+        "V10",
+        "V12",
+        "V26",
+        "Amount",
+        "V17",
+        "V11",
+        "V13",
+        "V21"
+      ]
+    },
+    {
+      "config": "C0_baseline",
+      "seed": 43,
+      "top10": [
+        "V14",
+        "V10",
+        "V4",
+        "V12",
+        "Amount",
+        "V26",
+        "V13",
+        "V7",
+        "V11",
+        "V17"
+      ]
+    },
+    {
+      "config": "C0_baseline",
+      "seed": 44,
+      "top10": [
+        "V14",
+        "V10",
+        "V4",
+        "V12",
+        "V13",
+        "V17",
+        "V21",
+        "Amount",
+        "V26",
+        "V7"
+      ]
+    },
+    {
+      "config": "C0_baseline",
+      "seed": 45,
+      "top10": [
+        "V14",
+        "V10",
+        "V4",
+        "V12",
+        "V26",
+        "Amount",
+        "V13",
+        "V21",
+        "V17",
+        "V11"
+      ]
+    },
+    {
+      "config": "C0_baseline",
+      "seed": 46,
+      "top10": [
+        "V14",
+        "V10",
+        "V4",
+        "V12",
+        "V28",
+        "V17",
+        "V26",
+        "Amount",
+        "V13",
+        "Time"
+      ]
+    },
+    {
+      "config": "C1_regularized",
+      "seed": 42,
+      "top10": [
+        "V14",
+        "V4",
+        "V10",
+        "V12",
+        "V17",
+        "Amount",
+        "V26",
+        "V20",
+        "V11",
+        "V21"
+      ]
+    },
+    {
+      "config": "C1_regularized",
+      "seed": 43,
+      "top10": [
+        "V14",
+        "V10",
+        "V4",
+        "V12",
+        "V17",
+        "Amount",
+        "V26",
+        "V21",
+        "V20",
+        "V13"
+      ]
+    },
+    {
+      "config": "C1_regularized",
+      "seed": 44,
+      "top10": [
+        "V14",
+        "V10",
+        "V4",
+        "V12",
+        "V17",
+        "V26",
+        "Amount",
+        "V21",
+        "V13",
+        "V11"
+      ]
+    },
+    {
+      "config": "C1_regularized",
+      "seed": 45,
+      "top10": [
+        "V14",
+        "V10",
+        "V4",
+        "V12",
+        "V17",
+        "Amount",
+        "V21",
+        "V26",
+        "V11",
+        "V13"
+      ]
+    },
+    {
+      "config": "C1_regularized",
+      "seed": 46,
+      "top10": [
+        "V14",
+        "V10",
+        "V4",
+        "V12",
+        "V17",
+        "Amount",
+        "V26",
+        "V21",
+        "V3",
+        "V13"
+      ]
+    },
+    {
+      "config": "C2_shallow",
+      "seed": 42,
+      "top10": [
+        "V14",
+        "V4",
+        "V10",
+        "V12",
+        "V21",
+        "V17",
+        "V11",
+        "Amount",
+        "V8",
+        "V16"
+      ]
+    },
+    {
+      "config": "C2_shallow",
+      "seed": 43,
+      "top10": [
+        "V14",
+        "V10",
+        "V4",
+        "V12",
+        "V21",
+        "V17",
+        "Amount",
+        "V20",
+        "V11",
+        "V26"
+      ]
+    },
+    {
+      "config": "C2_shallow",
+      "seed": 44,
+      "top10": [
+        "V14",
+        "V10",
+        "V4",
+        "V12",
+        "V17",
+        "V21",
+        "Amount",
+        "V20",
+        "V26",
+        "V11"
+      ]
+    },
+    {
+      "config": "C2_shallow",
+      "seed": 45,
+      "top10": [
+        "V14",
+        "V10",
+        "V4",
+        "V12",
+        "V17",
+        "Amount",
+        "V21",
+        "V11",
+        "V13",
+        "V20"
+      ]
+    },
+    {
+      "config": "C2_shallow",
+      "seed": 46,
+      "top10": [
+        "V14",
+        "V10",
+        "V4",
+        "V12",
+        "V17",
+        "V21",
+        "Amount",
+        "V20",
+        "V11",
+        "V16"
+      ]
+    },
+    {
+      "config": "C3_no_colsample",
+      "seed": 42,
+      "top10": [
+        "V14",
+        "V4",
+        "V10",
+        "V12",
+        "V21",
+        "V26",
+        "Amount",
+        "V11",
+        "V13",
+        "V19"
+      ]
+    },
+    {
+      "config": "C3_no_colsample",
+      "seed": 43,
+      "top10": [
+        "V14",
+        "V4",
+        "V10",
+        "V12",
+        "V17",
+        "V26",
+        "V13",
+        "Amount",
+        "V21",
+        "V11"
+      ]
+    },
+    {
+      "config": "C3_no_colsample",
+      "seed": 44,
+      "top10": [
+        "V14",
+        "V4",
+        "V10",
+        "V12",
+        "Amount",
+        "V21",
+        "V26",
+        "V17",
+        "V20",
+        "V11"
+      ]
+    },
+    {
+      "config": "C3_no_colsample",
+      "seed": 45,
+      "top10": [
+        "V14",
+        "V4",
+        "V12",
+        "V10",
+        "Amount",
+        "V21",
+        "V26",
+        "V17",
+        "V11",
+        "V13"
+      ]
+    },
+    {
+      "config": "C3_no_colsample",
+      "seed": 46,
+      "top10": [
+        "V14",
+        "V4",
+        "V10",
+        "V12",
+        "Amount",
+        "V21",
+        "V17",
+        "V26",
+        "V11",
+        "V28"
+      ]
+    },
+    {
+      "config": "C4_unweighted",
+      "seed": 42,
+      "top10": [
+        "V14",
+        "V10",
+        "V4",
+        "V26",
+        "V12",
+        "V17",
+        "V28",
+        "V3",
+        "V8",
+        "V24"
+      ]
+    },
+    {
+      "config": "C4_unweighted",
+      "seed": 43,
+      "top10": [
+        "V14",
+        "V10",
+        "V4",
+        "V26",
+        "V17",
+        "V12",
+        "V28",
+        "V24",
+        "Amount",
+        "V8"
+      ]
+    },
+    {
+      "config": "C4_unweighted",
+      "seed": 44,
+      "top10": [
+        "V14",
+        "V10",
+        "V4",
+        "V26",
+        "V17",
+        "V12",
+        "V28",
+        "V6",
+        "V8",
+        "V20"
+      ]
+    },
+    {
+      "config": "C4_unweighted",
+      "seed": 45,
+      "top10": [
+        "V17",
+        "V12",
+        "V4",
+        "V14",
+        "V18",
+        "V26",
+        "V10",
+        "V28",
+        "V27",
+        "V11"
+      ]
+    },
+    {
+      "config": "C4_unweighted",
+      "seed": 46,
+      "top10": [
+        "V14",
+        "V10",
+        "V4",
+        "V17",
+        "V26",
+        "V12",
+        "V8",
+        "V28",
+        "V6",
+        "V20"
+      ]
+    }
+  ],
+  "aggregate": [
+    {
+      "feature": "V14",
+      "mean_share": 0.5752910550701975,
+      "std_share": 0.11815701022292995,
+      "min_share": 0.03482604996740792,
+      "max_share": 0.6688021721159741,
+      "mean_rank": 1.12,
+      "best_rank": 1,
+      "worst_rank": 4,
+      "top10_freq": 25,
+      "top15_freq": 25,
+      "top20_freq": 25,
+      "top_k_freq_ratio": 1.0,
+      "rank_by_mean": 1
+    },
+    {
+      "feature": "V10",
+      "mean_share": 0.09466680315092121,
+      "std_share": 0.053592962628478256,
+      "min_share": 0.014069013561589409,
+      "max_share": 0.19958931596691915,
+      "mean_rank": 2.56,
+      "best_rank": 2,
+      "worst_rank": 7,
+      "top10_freq": 25,
+      "top15_freq": 25,
+      "top20_freq": 25,
+      "top_k_freq_ratio": 1.0,
+      "rank_by_mean": 2
+    },
+    {
+      "feature": "V4",
+      "mean_share": 0.07794951910687438,
+      "std_share": 0.01557528657313686,
+      "min_share": 0.0441528344664132,
+      "max_share": 0.09973231031600072,
+      "mean_rank": 2.68,
+      "best_rank": 2,
+      "worst_rank": 3,
+      "top10_freq": 25,
+      "top15_freq": 25,
+      "top20_freq": 25,
+      "top_k_freq_ratio": 1.0,
+      "rank_by_mean": 3
+    },
+    {
+      "feature": "V12",
+      "mean_share": 0.04197281679297446,
+      "std_share": 0.03932877940044262,
+      "min_share": 0.011626445325008417,
+      "max_share": 0.21744500078245765,
+      "mean_rank": 4.16,
+      "best_rank": 2,
+      "worst_rank": 6,
+      "top10_freq": 25,
+      "top15_freq": 25,
+      "top20_freq": 25,
+      "top_k_freq_ratio": 1.0,
+      "rank_by_mean": 4
+    },
+    {
+      "feature": "V17",
+      "mean_share": 0.03221999857937023,
+      "std_share": 0.08873288552945548,
+      "min_share": 0.009667242886035732,
+      "max_share": 0.466673252215716,
+      "mean_rank": 6.08,
+      "best_rank": 1,
+      "worst_rank": 13,
+      "top10_freq": 24,
+      "top15_freq": 25,
+      "top20_freq": 25,
+      "top_k_freq_ratio": 0.96,
+      "rank_by_mean": 5
+    },
+    {
+      "feature": "V26",
+      "mean_share": 0.012316628505057365,
+      "std_share": 0.0020491163664513737,
+      "min_share": 0.007871931141108847,
+      "max_share": 0.015489646076163302,
+      "mean_rank": 7.2,
+      "best_rank": 4,
+      "worst_rank": 14,
+      "top10_freq": 22,
+      "top15_freq": 25,
+      "top20_freq": 25,
+      "top_k_freq_ratio": 0.88,
+      "rank_by_mean": 6
+    },
+    {
+      "feature": "Amount",
+      "mean_share": 0.012194100457868132,
+      "std_share": 0.0017166757070501294,
+      "min_share": 0.008913178243093605,
+      "max_share": 0.015467034582250691,
+      "mean_rank": 7.64,
+      "best_rank": 5,
+      "worst_rank": 14,
+      "top10_freq": 21,
+      "top15_freq": 25,
+      "top20_freq": 25,
+      "top_k_freq_ratio": 0.84,
+      "rank_by_mean": 7
+    },
+    {
+      "feature": "V21",
+      "mean_share": 0.01144184429918487,
+      "std_share": 0.002393967081699371,
+      "min_share": 0.006613710368367174,
+      "max_share": 0.015456399084726666,
+      "mean_rank": 9.6,
+      "best_rank": 5,
+      "worst_rank": 23,
+      "top10_freq": 18,
+      "top15_freq": 22,
+      "top20_freq": 24,
+      "top_k_freq_ratio": 0.72,
+      "rank_by_mean": 8
+    },
+    {
+      "feature": "V11",
+      "mean_share": 0.010120754060855521,
+      "std_share": 0.0014021864232309537,
+      "min_share": 0.00689529881524165,
+      "max_share": 0.012792879963595818,
+      "mean_rank": 10.84,
+      "best_rank": 7,
+      "worst_rank": 21,
+      "top10_freq": 17,
+      "top15_freq": 22,
+      "top20_freq": 23,
+      "top_k_freq_ratio": 0.68,
+      "rank_by_mean": 9
+    },
+    {
+      "feature": "V13",
+      "mean_share": 0.00975156221933879,
+      "std_share": 0.001830402636127894,
+      "min_share": 0.005635449403005266,
+      "max_share": 0.01293005126923052,
+      "mean_rank": 11.2,
+      "best_rank": 5,
+      "worst_rank": 18,
+      "top10_freq": 13,
+      "top15_freq": 21,
+      "top20_freq": 25,
+      "top_k_freq_ratio": 0.52,
+      "rank_by_mean": 10
+    },
+    {
+      "feature": "V20",
+      "mean_share": 0.009375588041648855,
+      "std_share": 0.0016242079266669015,
+      "min_share": 0.005756715872741382,
+      "max_share": 0.01227000027798424,
+      "mean_rank": 11.72,
+      "best_rank": 8,
+      "worst_rank": 21,
+      "top10_freq": 9,
+      "top15_freq": 22,
+      "top20_freq": 24,
+      "top_k_freq_ratio": 0.36,
+      "rank_by_mean": 11
+    },
+    {
+      "feature": "V28",
+      "mean_share": 0.008679585774208706,
+      "std_share": 0.003957335646257549,
+      "min_share": 0.005058619785807466,
+      "max_share": 0.02474916316272365,
+      "mean_rank": 14.28,
+      "best_rank": 5,
+      "worst_rank": 24,
+      "top10_freq": 7,
+      "top15_freq": 15,
+      "top20_freq": 21,
+      "top_k_freq_ratio": 0.28,
+      "rank_by_mean": 12
+    },
+    {
+      "feature": "V7",
+      "mean_share": 0.008079604516685306,
+      "std_share": 0.001574324307689016,
+      "min_share": 0.004519857069169378,
+      "max_share": 0.010582270926249611,
+      "mean_rank": 14.6,
+      "best_rank": 8,
+      "worst_rank": 26,
+      "top10_freq": 2,
+      "top15_freq": 17,
+      "top20_freq": 23,
+      "top_k_freq_ratio": 0.08,
+      "rank_by_mean": 13
+    },
+    {
+      "feature": "V8",
+      "mean_share": 0.00767217570117771,
+      "std_share": 0.001594834515338639,
+      "min_share": 0.0056962084610928864,
+      "max_share": 0.011402803237650198,
+      "mean_rank": 14.92,
+      "best_rank": 7,
+      "worst_rank": 20,
+      "top10_freq": 5,
+      "top15_freq": 12,
+      "top20_freq": 25,
+      "top_k_freq_ratio": 0.2,
+      "rank_by_mean": 14
+    },
+    {
+      "feature": "V3",
+      "mean_share": 0.007682774924018318,
+      "std_share": 0.001385786661003765,
+      "min_share": 0.005626604255646873,
+      "max_share": 0.010240403807790784,
+      "mean_rank": 15.2,
+      "best_rank": 8,
+      "worst_rank": 22,
+      "top10_freq": 2,
+      "top15_freq": 16,
+      "top20_freq": 21,
+      "top_k_freq_ratio": 0.08,
+      "rank_by_mean": 15
+    },
+    {
+      "feature": "V16",
+      "mean_share": 0.007385382064795046,
+      "std_share": 0.001044386329447459,
+      "min_share": 0.005387922264427259,
+      "max_share": 0.009733312099488113,
+      "mean_rank": 15.64,
+      "best_rank": 10,
+      "worst_rank": 21,
+      "top10_freq": 2,
+      "top15_freq": 12,
+      "top20_freq": 23,
+      "top_k_freq_ratio": 0.08,
+      "rank_by_mean": 16
+    },
+    {
+      "feature": "V19",
+      "mean_share": 0.006707833951842791,
+      "std_share": 0.001479182530014315,
+      "min_share": 0.003996498802747379,
+      "max_share": 0.010953370783267986,
+      "mean_rank": 18.04,
+      "best_rank": 10,
+      "worst_rank": 29,
+      "top10_freq": 1,
+      "top15_freq": 8,
+      "top20_freq": 20,
+      "top_k_freq_ratio": 0.04,
+      "rank_by_mean": 17
+    },
+    {
+      "feature": "V18",
+      "mean_share": 0.007078843460168336,
+      "std_share": 0.004514610634597123,
+      "min_share": 0.0038041270281292936,
+      "max_share": 0.02852134095486076,
+      "mean_rank": 18.12,
+      "best_rank": 5,
+      "worst_rank": 28,
+      "top10_freq": 1,
+      "top15_freq": 8,
+      "top20_freq": 16,
+      "top_k_freq_ratio": 0.04,
+      "rank_by_mean": 18
+    },
+    {
+      "feature": "V15",
+      "mean_share": 0.005913736461746284,
+      "std_share": 0.0008292019582310124,
+      "min_share": 0.0045715917541181645,
+      "max_share": 0.007460018962265976,
+      "mean_rank": 20.08,
+      "best_rank": 14,
+      "worst_rank": 26,
+      "top10_freq": 0,
+      "top15_freq": 1,
+      "top20_freq": 16,
+      "top_k_freq_ratio": 0.0,
+      "rank_by_mean": 19
+    },
+    {
+      "feature": "V27",
+      "mean_share": 0.005969303150753891,
+      "std_share": 0.002199438909549285,
+      "min_share": 0.00244798606241337,
+      "max_share": 0.011180261646012709,
+      "mean_rank": 20.52,
+      "best_rank": 9,
+      "worst_rank": 28,
+      "top10_freq": 1,
+      "top15_freq": 5,
+      "top20_freq": 8,
+      "top_k_freq_ratio": 0.04,
+      "rank_by_mean": 20
+    },
+    {
+      "feature": "Time",
+      "mean_share": 0.00583409795960181,
+      "std_share": 0.0021017896273539064,
+      "min_share": 0.001612683590999448,
+      "max_share": 0.010463856889989456,
+      "mean_rank": 20.64,
+      "best_rank": 10,
+      "worst_rank": 30,
+      "top10_freq": 1,
+      "top15_freq": 4,
+      "top20_freq": 9,
+      "top_k_freq_ratio": 0.04,
+      "rank_by_mean": 21
+    },
+    {
+      "feature": "V22",
+      "mean_share": 0.005604778854026173,
+      "std_share": 0.0014731839442437317,
+      "min_share": 0.0027947874428608755,
+      "max_share": 0.008851903442666132,
+      "mean_rank": 20.8,
+      "best_rank": 12,
+      "worst_rank": 28,
+      "top10_freq": 0,
+      "top15_freq": 4,
+      "top20_freq": 11,
+      "top_k_freq_ratio": 0.0,
+      "rank_by_mean": 22
+    },
+    {
+      "feature": "V25",
+      "mean_share": 0.005843003245885012,
+      "std_share": 0.0009123937248973643,
+      "min_share": 0.00404963495444403,
+      "max_share": 0.008514815875702198,
+      "mean_rank": 20.8,
+      "best_rank": 14,
+      "worst_rank": 27,
+      "top10_freq": 0,
+      "top15_freq": 2,
+      "top20_freq": 12,
+      "top_k_freq_ratio": 0.0,
+      "rank_by_mean": 23
+    },
+    {
+      "feature": "V6",
+      "mean_share": 0.005151254511855128,
+      "std_share": 0.0019044734277897078,
+      "min_share": 0.0025871490386129683,
+      "max_share": 0.010368546611277446,
+      "mean_rank": 22.72,
+      "best_rank": 8,
+      "worst_rank": 30,
+      "top10_freq": 2,
+      "top15_freq": 2,
+      "top20_freq": 6,
+      "top_k_freq_ratio": 0.08,
+      "rank_by_mean": 24
+    },
+    {
+      "feature": "V23",
+      "mean_share": 0.004806567445675856,
+      "std_share": 0.001950376568206435,
+      "min_share": 0.0012531546459417751,
+      "max_share": 0.008638340415868485,
+      "mean_rank": 23.96,
+      "best_rank": 13,
+      "worst_rank": 30,
+      "top10_freq": 0,
+      "top15_freq": 2,
+      "top20_freq": 5,
+      "top_k_freq_ratio": 0.0,
+      "rank_by_mean": 25
+    },
+    {
+      "feature": "V24",
+      "mean_share": 0.004798204605697202,
+      "std_share": 0.002262759981729249,
+      "min_share": 0.0025374310758238226,
+      "max_share": 0.0106783117264293,
+      "mean_rank": 24.04,
+      "best_rank": 8,
+      "worst_rank": 30,
+      "top10_freq": 2,
+      "top15_freq": 3,
+      "top20_freq": 4,
+      "top_k_freq_ratio": 0.08,
+      "rank_by_mean": 26
+    },
+    {
+      "feature": "V2",
+      "mean_share": 0.004500283335645739,
+      "std_share": 0.0012339657102697881,
+      "min_share": 0.00234967680639569,
+      "max_share": 0.007077969731985135,
+      "mean_rank": 25.0,
+      "best_rank": 19,
+      "worst_rank": 29,
+      "top10_freq": 0,
+      "top15_freq": 0,
+      "top20_freq": 2,
+      "top_k_freq_ratio": 0.0,
+      "rank_by_mean": 27
+    },
+    {
+      "feature": "V5",
+      "mean_share": 0.004385066902309586,
+      "std_share": 0.002071656983008597,
+      "min_share": 0.002260933602412857,
+      "max_share": 0.009353468213947348,
+      "mean_rank": 25.28,
+      "best_rank": 13,
+      "worst_rank": 30,
+      "top10_freq": 0,
+      "top15_freq": 2,
+      "top20_freq": 5,
+      "top_k_freq_ratio": 0.0,
+      "rank_by_mean": 28
+    },
+    {
+      "feature": "V9",
+      "mean_share": 0.003661839393800471,
+      "std_share": 0.0010040707853320174,
+      "min_share": 0.0025482907226903623,
+      "max_share": 0.005805583878902072,
+      "mean_rank": 26.72,
+      "best_rank": 19,
+      "worst_rank": 30,
+      "top10_freq": 0,
+      "top15_freq": 0,
+      "top20_freq": 2,
+      "top_k_freq_ratio": 0.0,
+      "rank_by_mean": 29
+    },
+    {
+      "feature": "V1",
+      "mean_share": 0.002944993455815341,
+      "std_share": 0.0011063268543856153,
+      "min_share": 0.0009397220530164929,
+      "max_share": 0.005545952712604096,
+      "mean_rank": 28.84,
+      "best_rank": 27,
+      "worst_rank": 30,
+      "top10_freq": 0,
+      "top15_freq": 0,
+      "top20_freq": 0,
+      "top_k_freq_ratio": 0.0,
+      "rank_by_mean": 30
+    }
+  ],
+  "script": "src/lightgbm_importance_robustness.py",
+  "created_at": "2026-11-24T22:11:37+08:00",
+  "python": "3.13.7",
+  "notes": [
+    "只用训练集；不使用早停，避免通过验证集影响特征排序。",
+    "5 组配置均为预设，未依据任何验证结果挑选。",
+    "平均名次相关性与 Top-10 Jaccard 衡量排名的稳定性，越接近 1 越稳。"
+  ]
+}
