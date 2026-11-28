@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "seed": 42,
+    "source": "stage-1 split, unchanged",
+    "generated_by": "src/gen_data_split_info.py"
+  },
+  "columns": {
+    "feature_order": [
+      "Time",
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "V5",
+      "V6",
+      "V7",
+      "V8",
+      "V9",
+      "V10",
+      "V11",
+      "V12",
+      "V13",
+      "V14",
+      "V15",
+      "V16",
+      "V17",
+      "V18",
+      "V19",
+      "V20",
+      "V21",
+      "V22",
+      "V23",
+      "V24",
+      "V25",
+      "V26",
+      "V27",
+      "V28",
+      "Amount"
+    ],
+    "label": "Class",
+    "n_features": 30
+  },
+  "split": {
+    "train": {
+      "rows": 199364,
+      "frauds": 344,
+      "fraud_rate": 0.00172549,
+      "columns_ok": true
+    },
+    "valid": {
+      "rows": 42721,
+      "frauds": 74,
+      "fraud_rate": 0.00173217,
+      "columns_ok": true
+    },
+    "test": {
+      "rows": 42722,
+      "frauds": 74,
+      "fraud_rate": 0.00173213,
+      "columns_ok": true
+    }
+  },
+  "preprocessing": {
+    "scaling_evidence": {
+      "train": {
+        "Time": {
+          "mean": -0.0,
+          "std_ddof0": 1.0
+        },
+        "Amount": {
+          "mean": 0.0,
+          "std_ddof0": 1.0
+        }
+      },
+      "valid": {
+        "Time": {
+          "mean": -0.003969,
+          "std_ddof0": 0.997663
+        },
+        "Amount": {
+          "mean": 0.001813,
+          "std_ddof0": 0.97991
+        }
+      },
+      "test": {
+        "Time": {
+          "mean": -0.007873,
+          "std_ddof0": 1.002058
+        },
+        "Amount": {
+          "mean": -0.00274,
+          "std_ddof0": 0.940993
+        }
+      }
+    },
+    "scaled_columns": [
+      "Time",
+      "Amount"
+    ],
+    "scaler": "StandardScaler",
+    "fit_on": "train only",
+    "evidence": "train std(ddof=0) == 1.000000；valid/test 偏离，证明 fit 只发生在训练集",
+    "unscaled_columns": "V1..V28 (already PCA outputs)"
+  },
+  "test_set": {
+    "independent": true,
+    "used_for": "final evaluation only"
+  }
+}
